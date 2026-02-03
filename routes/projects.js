@@ -52,15 +52,20 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-router.edit('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
-        const result = await Project.findByIdAndUpdate(req.params.id, req.body);
-        
-        if (!result) {
+        // Cari projek ikut ID dan update dengan data baru (req.body)
+        const updatedProject = await Project.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true } // PENTING: Option ini pastikan kita dapat data yang dah update (bukan yang lama)
+        );
+
+        if (!updatedProject) {
             return res.status(404).json({ message: "Projek tak jumpa!" });
         }
 
-        res.json({ message: "Projek berjaya diedit" });
+        res.json(updatedProject);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
