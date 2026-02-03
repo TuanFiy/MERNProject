@@ -52,4 +52,18 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+router.edit('/:id', async (req, res) => {
+    try {
+        const result = await Project.findByIdAndUpdate(req.params.id, req.body);
+        
+        if (!result) {
+            return res.status(404).json({ message: "Projek tak jumpa!" });
+        }
+
+        res.json({ message: "Projek berjaya diedit" });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 module.exports = router;
