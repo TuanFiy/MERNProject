@@ -9,7 +9,7 @@ function App() {
   useEffect(() => { fetchProjects(); }, []);
 
   const fetchProjects = () => {
-    fetch('https://mernproject-fvy9.onrender.com')
+    fetch('https://mernproject-fvy9.onrender.com/api/projects')
       .then(res => res.json())
       .then(data => setProjects(data))
       .catch(err => console.error(err));
@@ -22,7 +22,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch('https://mernproject-fvy9.onrender.com', {
+      await fetch('https://mernproject-fvy9.onrender.com/api/projects', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -38,7 +38,7 @@ function App() {
     if (!confirmDelete) return;
 
     try {
-      await fetch(`https://mernproject-fvy9.onrender.com/${id}`, {
+      await fetch(`https://mernproject-fvy9.onrender.com/api/projects/${id}`, {
         method: 'DELETE',
       });
       // Refresh list lepas delete
