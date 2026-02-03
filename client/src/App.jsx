@@ -49,8 +49,16 @@ function App() {
   };
 
   const handleEdit = async (id) => {
-    // TODO: Implement edit functionality
-    console.log("Edit project with ID:", id);
+    try {
+      await fetch(`https://mernproject-fvy9.onrender.com/api/projects/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      fetchProjects();
+    } catch (err) {
+      console.error("Error editing:", err);
+    }
   };
 
   return (
