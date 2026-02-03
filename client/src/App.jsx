@@ -9,7 +9,7 @@ function App() {
   useEffect(() => { fetchProjects(); }, []);
 
   const fetchProjects = () => {
-    fetch('http://localhost:5000/api/projects')
+    fetch('https://mernproject-fvy9.onrender.com')
       .then(res => res.json())
       .then(data => setProjects(data))
       .catch(err => console.error(err));
@@ -22,7 +22,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch('http://localhost:5000/api/projects', {
+      await fetch('https://mernproject-fvy9.onrender.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -38,7 +38,7 @@ function App() {
     if (!confirmDelete) return;
 
     try {
-      await fetch(`http://localhost:5000/api/projects/${id}`, {
+      await fetch(`https://mernproject-fvy9.onrender.com/${id}`, {
         method: 'DELETE',
       });
       // Refresh list lepas delete
@@ -88,4 +88,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;sd
