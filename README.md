@@ -2,7 +2,7 @@
 
 Sistem pengurusan portfolio ringkas yang membolehkan pengguna menambah dan memadam projek. Dibina untuk demonstrasi kebolehan Full Stack Development.
 
-🔗 **Live Demo:** [Letak Link Vercel Awak Di Sini]
+🔗 **Live Demo:** https://mern-project-mu-azure.vercel.app
 
 ## 🛠 Tech Stack
 - **Frontend:** React + Vite
