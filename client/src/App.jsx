@@ -48,6 +48,11 @@ function App() {
     }
   };
 
+  const handleEdit = async (id) => {
+    // TODO: Implement edit functionality
+    console.log("Edit project with ID:", id);
+  };
+
   return (
     <div style={{ fontFamily: "Arial", padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
       <h1>💻 Portfolio Manager</h1>
@@ -80,6 +85,12 @@ function App() {
               style={{ background: "red", color: "white", border: "none", padding: "5px 10px", cursor: "pointer", borderRadius: "4px" }}
             >
               Padam
+            </button>
+            <button 
+              onClick={() => handleEdit(project._id)} 
+              style={{ background: "blue", color: "white", border: "none", padding: "5px 10px", cursor: "pointer", borderRadius: "4px" }}
+            >
+              Edit
             </button>
           </div>
         ))}
